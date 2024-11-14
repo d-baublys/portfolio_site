@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DB's Portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
 </head>
 <body>
-    
+    <header></header>
+    <div class="split-container">
+        <div class="split-section left-section" tabindex="0"></div>
+        <div class="split-section right-section" tabindex="0"></div>
+    </div>
+    <script src="{% static 'portfolio/main.js' %}"></script>
 </body>
 </html>
