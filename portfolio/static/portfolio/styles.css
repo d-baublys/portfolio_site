@@ -31,19 +31,24 @@ a {
     height: 100%;
 }
 
-.split-section:hover,
-.split-section:focus {
-    opacity: 75%;
-}
-
 .left-section {
-    background-color: #94b1ca;
+    background-color: #5380a7;
     clip-path: polygon(0 0, 67% 0, 33% 100%, 0 100%);
 }
 
+.left-section:hover,
+.left-section:focus {
+    background-color: #84a9ca;
+}
+
 .right-section {
-    background-color: #59a0ba;
+    background-color: #468aa3;
     clip-path: polygon(67% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.right-section:hover,
+.right-section:focus {
+    background-color: #59a0ba;
 }
 
 .outer-container {
@@ -88,7 +93,7 @@ a {
 }
 
 .split-section:not(.active) {
-    filter: brightness(0.75);
+    filter: brightness(0.8);
 }
 
 .split-section:not(.active) .outer-container {
