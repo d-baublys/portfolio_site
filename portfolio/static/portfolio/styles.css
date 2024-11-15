@@ -44,8 +44,14 @@ svg {
 .header-text {
     display: inline-block;
     margin-left: 5rem;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bolder;
+}
+
+@media screen and (min-width: 64rem) {
+    .header-text {
+        font-size: 4rem;
+    }
 }
 
 .split-section {
@@ -66,7 +72,13 @@ svg {
 
 .left-section {
     background-color: #5380a7;
-    clip-path: polygon(0 0, 67% 0, 33% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 67%);
+}
+
+@media screen and (min-width: 48rem) {
+    .left-section {
+        clip-path: polygon(0 0, 67% 0, 33% 100%, 0 100%);
+    }
 }
 
 .left-section:hover,
@@ -76,7 +88,13 @@ svg {
 
 .right-section {
     background-color: #468aa3;
-    clip-path: polygon(67% 0, 100% 0, 100% 100%, 33% 100%);
+    clip-path: polygon(0 67%, 100% 33%, 100% 100%, 0 100%);
+}
+
+@media screen and (min-width: 48rem) {
+    .right-section {
+        clip-path: polygon(67% 0, 100% 0, 100% 100%, 33% 100%);
+    }
 }
 
 .right-section:hover,
@@ -99,19 +117,40 @@ svg {
 }
 
 .left-section .outer-container {
-    top: -10%;
+    top: -25%;
+    left: 25%;
+}
+
+@media screen and (min-width: 48rem) {
+    .left-section .outer-container {
+        top: -10%;
+        left: 0;
+    }
 }
 
 .right-section .outer-container {
-    top: 10%;
-    left: 50%;
+    top: 25%;
+    left: 25%;
+}
+
+@media screen and (min-width: 48rem) {
+    .right-section .outer-container {
+        top: 10%;
+        left: 50%;
+    }
 }
 
 .section-title {
     margin: 2rem 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #e2e2e2;
     font-weight: bold;
+}
+
+@media screen and (min-width: 64rem) {
+    .section-title {
+        font-size: 2.5rem;
+    }
 }
 
 .button {
