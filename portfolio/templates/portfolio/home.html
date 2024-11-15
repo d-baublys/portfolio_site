@@ -20,7 +20,15 @@
             <div class="outer-container">
                 <div class="inner-container">
                     <div class="section-title">Blog Site</div>
-                    <img src="{% static 'portfolio/images/blogpreview-1200w.png' %}" alt="" class="section-img">
+                    <img
+                        src="{% static 'portfolio/images/blogpreview-1200w.png' %}"
+                        alt="Blog Site Preview"
+                        class="section-img"
+                        sizes="25vw"
+                        srcset="{% static 'portfolio/images/blogpreview-480w.png' %} 480w,
+                        {% static 'portfolio/images/blogpreview-768w.png' %} 768w,
+                        {% static 'portfolio/images/blogpreview-1200w.png' %} 1200w"
+                    />
                     <a href="" class="button" tabindex="0">Live Site</a>
                     <a href="" class="button" tabindex="0">Source Code</a>
                 </div>
@@ -30,7 +38,15 @@
             <div class="outer-container">
                 <div class="inner-container">
                     <div class="section-title">Blogger.com Clone</div>
-                    <img src="{% static 'portfolio/images/clonepreview-1200w.png' %}" alt="" class="section-img">
+                    <img
+                        src="{% static 'portfolio/images/clonepreview-1200w.png' %}"
+                        alt="Blogger Clone Preview"
+                        class="section-img"
+                        sizes="25vw"
+                        srcset="{% static 'portfolio/images/clonepreview-480w.png' %} 480w,
+                        {% static 'portfolio/images/clonepreview-768w.png' %} 768w,
+                        {% static 'portfolio/images/clonepreview-1200w.png' %} 1200w"
+                    />
                     <a href="" class="button" tabindex="0">Live Site</a>
                     <a href="" class="button" tabindex="0">Source Code</a>
                 </div>
