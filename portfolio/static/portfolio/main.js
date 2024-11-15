@@ -1,22 +1,30 @@
 const sections = document.querySelectorAll(".split-section");
 
-function activateSection(section) {
+function switchSection(section) {
     if (!section.classList.contains("active")) {
-        section.classList.add("active");
-        section === sections[0]
-            ? sections[1].classList.remove("active")
-            : sections[0].classList.remove("active");
+        activateSection(section);
     }
+}
+
+function activateSection(section) {
+    section.classList.add("active");
+    sectionButtons = section.querySelectorAll(".button");
+    sectionButtons.forEach((button) => button.classList.add("active"));
+
+    otherSection = sections[1 - Array.from(sections).indexOf(section)];
+    otherSection.classList.remove("active");
+    otherButtons = otherSection.querySelectorAll(".button");
+    otherButtons.forEach((button) => button.classList.remove("active"));
 }
 
 function setUpEventListeners() {
     sections.forEach((section) => {
-        section.addEventListener("click", () => activateSection(section));
+        section.addEventListener("click", () => switchSection(section));
     });
 }
 
 function init() {
-    sections[0].classList.add("active");
+    activateSection(sections[0]);
     setUpEventListeners();
 }
 

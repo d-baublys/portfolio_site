@@ -117,8 +117,8 @@ img {
     font-size: 1.25rem;
 }
 
-.button:hover,
-.button:focus {
+.button.active:hover,
+.button.active:focus {
     background-color: #fff;
     color: #000;
 }
@@ -129,4 +129,9 @@ img {
 
 .split-section:not(.active) .outer-container {
     filter: blur(1px);
+}
+
+.button:not(.active) {
+    cursor: default;
+    pointer-events: none;
 }
