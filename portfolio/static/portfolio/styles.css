@@ -25,68 +25,77 @@ a {
 }
 
 img {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     width: 100%;
     height: auto;
-    min-width: 12rem;
 }
 
-svg {
-    margin-left: 0.5rem;
+@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
+    img {
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media screen and (min-width: 48rem), (min-height: 56.25rem) {
+    img {
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
+    img {
+        margin-bottom: 1.5rem;
+    }
 }
 
 .site-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     z-index: 1;
-    height: 7rem;
+    height: 10vh;
 }
 
-@media screen and (min-width: 30rem) {
+@media screen and (min-aspect-ratio: 1) {
     .site-header {
-        justify-content: initial;  
-    }
-}
-
-@media screen and (min-width: 48rem) {
-    .site-header {
-        height: 10rem;
+        height: 16vh;
     }
 }
 
 .header-text {
     display: inline-block;
-    font-size: 3rem;
+    margin-left: 1rem;
+    font-size: 2rem;
     font-weight: bolder;
 }
 
-@media screen and (min-width: 30rem) {
+@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
     .header-text {
         margin-left: 2rem;
+        font-size: 2.5rem;
     }
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 48rem) and (min-height: 41.875rem) {
     .header-text {
         margin-left: 4rem;
+        font-size: 3rem;
     }
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
     .header-text {
         margin-left: 5rem;
-    }
-}
-
-@media screen and (min-width: 64rem) {
-    .header-text {
         font-size: 4rem;
     }
 }
 
+.split-container {
+    height: 100vh;
+}
+
 .split-section {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -103,12 +112,24 @@ svg {
 
 .left-section {
     background-color: #5380a7;
-    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 60%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 70%);
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-height: 41.6875rem) {
+    .left-section {
+        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 65%);
+    }
+}
+
+@media screen and (min-aspect-ratio: 1) {
     .left-section {
         clip-path: polygon(0 0, 67% 0, 33% 100%, 0 100%);
+    }
+}
+
+@media screen and (min-aspect-ratio: 1) and (max-width: 56.25rem) {
+    .left-section {
+        clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
     }
 }
 
@@ -119,12 +140,24 @@ svg {
 
 .right-section {
     background-color: #468aa3;
-    clip-path: polygon(0 60%, 100% 40%, 100% 100%, 0 100%);
+    clip-path: polygon(0 60%, 100% 50%, 100% 100%, 0 100%);
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-height: 41.6875rem) {
+    .right-section {
+        clip-path: polygon(0 65%, 100% 45%, 100% 100%, 0 100%);
+    }
+}
+
+@media screen and (min-aspect-ratio: 1) {
     .right-section {
         clip-path: polygon(67% 0, 100% 0, 100% 100%, 33% 100%);
+    }
+}
+
+@media screen and (min-aspect-ratio: 1) and (max-width: 56.25rem) {
+    .right-section {
+        clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
     }
 }
 
@@ -134,9 +167,14 @@ svg {
 }
 
 .outer-container {
-    position: relative;
-    width: 50%;
-    height: 100%;
+    position: absolute;
+    width: min-content;
+}
+
+@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
+    .outer-container {
+        width: 50%;
+    }
 }
 
 .outer-container,
@@ -148,53 +186,65 @@ svg {
 }
 
 .left-section .outer-container {
-    top: -25%;
-    left: 25%;
+    top: 10%;
+    left: 0%;
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-aspect-ratio: 1) {
     .left-section .outer-container {
-        top: -10%;
-        left: 0;
+        top: 15%;
     }
 }
 
 .right-section .outer-container {
-    top: 28%;
-    left: 25%;
+    bottom: 1%;
+    right: 0;
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-aspect-ratio: 1) {
     .right-section .outer-container {
-        top: 10%;
-        left: 50%;
+        bottom: 15%;
     }
+}
+
+@media screen and (min-aspect-ratio: 1) and (max-height: 30rem) {
+    .right-section .outer-container {
+        top: 15%;
+        bottom: initial;
+    }
+}
+
+.inner-container {
+    width: min-content;
+    margin: 0 1rem;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #e2e2e2;;
+    margin: 0.25rem 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: #e2e2e2;
     font-weight: bold;
 }
 
-@media screen and (min-width: 30rem) {
+@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
     .section-title {
-        white-space: nowrap;
+        margin: 0.25rem 0 0.75rem 0;
+        font-size: 1.5rem;
     }
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 48rem), (min-height: 56.25rem) {
     .section-title {
-        margin-bottom: 2rem;
+        margin: 0.5rem 0 1.25rem 0;
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
+    .section-title {
+        margin: 1rem 0 2rem 0;
         font-size: 2rem;
-    }
-}
-
-@media screen and (min-width: 64rem) {
-    .section-title {
-        font-size: 2.5rem;
     }
 }
 
@@ -202,13 +252,41 @@ svg {
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 10rem;
-    padding: 1rem 3rem;
-    margin: 1rem 0;
+    width: 8rem;
+    padding: 0.5rem 2rem;
+    margin: 0.25rem 0;
     border: 2px solid #fff;
-    border-radius: 1rem;
+    border-radius: 0.75rem;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
+    .button {
+        width: 9rem;
+        padding: 0.5rem 2.5rem;
+        margin: 0.5rem 0;
+        font-size: 1.125rem;
+    }
+}
+
+@media screen and (min-width: 48rem), (min-height: 56.25rem) {
+    .button {
+        width: 10rem;
+        padding: 0.75rem 3rem;
+        margin: 0.5rem 0;
+        border-radius: 1rem;
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
+    .button {
+        width: 12rem;
+        padding: 1rem 3rem;
+        margin: 0.75rem 0;
+        font-size: 1.33rem;
+    }
 }
 
 .button.active:hover,
@@ -222,7 +300,75 @@ svg {
     pointer-events: none;
 }
 
-.button.active:hover .github-logo,
-.button.active:focus .github-logo {
+.button.active:hover .github-path,
+.button.active:focus .github-path {
     fill: #000;
+}
+
+.inner-container .github-svg {
+    width: 1rem;
+    height: auto;
+    margin-left: 0.33rem;
+}
+
+@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
+    .inner-container .github-svg {
+        width: 1.125rem;
+        margin-left: 0.4rem;
+    }
+}
+
+@media screen and (min-width: 48rem), (min-height: 56.25rem) {
+    .inner-container .github-svg {
+        width: 1.25rem;
+        margin-left: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
+    .inner-container .github-svg {
+        width: 1.33rem;
+        margin-left: 0.6rem;
+    }
+}
+
+.header-button {
+    height: 100%;
+    margin-right: 5%;
+}
+
+.header-button .github-svg {
+    position: relative;
+    top: 20%;
+    width: auto;
+    height: 30%;
+    padding: 15%;
+    border: 2px solid #e2e2e2;
+    border-radius: 25%;
+}
+
+@media screen and (min-width: 48rem), (min-height: 56.25rem) {
+    .header-button .github-svg {
+        border-width: 3px;
+    }
+}
+
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
+    .header-button .github-svg {
+        border-width: 5px;
+    }
+}
+
+.header-button .github-path {
+    fill: #e2e2e2;
+}
+
+.header-button:hover .github-svg,
+.header-button:focus .github-svg {
+    border-color: #fff;
+}
+
+.header-button:hover .github-path,
+.header-button:focus .github-path {
+    fill: #fff;
 }
