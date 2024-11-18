@@ -61,7 +61,6 @@ img {
 }
 
 .header-text {
-    display: inline-block;
     margin-left: 1rem;
     font-size: 2rem;
     font-weight: bolder;
@@ -250,7 +249,7 @@ img {
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 8rem;
+    width: 12rem;
     padding: 0.5rem 2rem;
     margin: 0.25rem 0;
     border: 2px solid #fff;
@@ -263,7 +262,7 @@ img {
 
 @media screen and (min-width: 41.6875rem), (min-height: 48rem) {
     .button {
-        width: 9rem;
+        width: 14rem;
         padding: 0.5rem 2.5rem;
         margin: 0.5rem 0;
         font-size: 1.125rem;
@@ -272,7 +271,7 @@ img {
 
 @media screen and (min-width: 48rem), (min-height: 56.25rem) {
     .button {
-        width: 10rem;
+        width: 16rem;
         padding: 0.75rem 3rem;
         margin: 0.5rem 0;
         border-radius: 1rem;
@@ -282,7 +281,7 @@ img {
 
 @media screen and (min-width: 64rem) and (min-height: 56.25rem) {
     .button {
-        width: 12rem;
+        width: 18rem;
         padding: 1rem 3rem;
         margin: 0.75rem 0;
         font-size: 1.33rem;
@@ -335,23 +334,55 @@ img {
     }
 }
 
+.header-button-wrap,
+.header-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .header-button-wrap {
+    height: 2rem;
+    margin: 0 5% 1% 0;
+}
+
+@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
+    .header-button-wrap {
+        height: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 48rem) and (min-height: 41.875rem) {
+    .header-button-wrap {
+        height: 3rem;
+    }
+}
+
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
+    .header-button-wrap {
+        height: 4rem;
+    }
+}
+
+.header-button-wrap,
+.header-button-wrap * {
+    aspect-ratio: 1;
+    width: auto;
+}
+
+.header-button,
+.header-button .github-svg {
     height: 100%;
-    margin-right: 5%;
 }
 
 .header-button .github-svg {
-    position: relative;
-    top: 20%;
-    width: auto;
-    height: 30%;
     padding: 15%;
     border: 2px solid #e2e2e2;
     border-radius: 25%;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-@media screen and (min-width: 48rem), (min-height: 56.25rem) {
+@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
     .header-button .github-svg {
         border-width: 3px;
     }
@@ -359,7 +390,7 @@ img {
 
 @media screen and (min-width: 64rem) and (min-height: 56.25rem) {
     .header-button .github-svg {
-        border-width: 5px;
+        border-width: 4px;
     }
 }
 
