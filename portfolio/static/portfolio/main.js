@@ -1,8 +1,10 @@
 const sections = document.querySelectorAll(".split-section");
+const switchAudio = document.getElementById("switch-audio");
 
 function switchSection(section) {
     if (!section.classList.contains("active")) {
         activateSection(section);
+        playAudio();
     }
 }
 
@@ -14,23 +16,30 @@ function keySectionSwitch(event, section) {
 
 function activateSection(section) {
     section.classList.add("active");
-    sectionButtons = section.querySelectorAll(".button");
-    sectionButtons.forEach((button) => enableButton(button));
+    const sectionButtons = section.querySelectorAll(".button");
+    toggleButtons(sectionButtons, true);
 
-    otherSection = sections[1 - Array.from(sections).indexOf(section)];
+    const otherSection = getOtherSection(section);
     otherSection.classList.remove("active");
     otherButtons = otherSection.querySelectorAll(".button");
-    otherButtons.forEach((button) => disableButton(button));
+    toggleButtons(otherButtons, false);
 }
 
-function enableButton(button) {
-    button.classList.add("active");
-    button.tabIndex = 0;
+function getOtherSection(section) {
+    return sections[1 - Array.from(sections).indexOf(section)];
 }
 
-function disableButton(button) {
-    button.classList.remove("active");
-    button.tabIndex = -1;
+function toggleButtons(buttons, isEnabled) {
+    buttons.forEach((button) => {
+        button.classList.toggle("active", isEnabled);
+        button.tabIndex = isEnabled ? 0 : -1;
+    });
+}
+
+function playAudio() {
+    switchAudio.volume = 0.2;
+    switchAudio.currentTime = 0;
+    switchAudio.play();
 }
 
 function setUpEventListeners() {
