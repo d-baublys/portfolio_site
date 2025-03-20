@@ -10,11 +10,15 @@
 }
 
 body {
+    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: #ffff;
-    overflow: hidden;
+    height: 100vh;
+
+    min-height: 54rem;
+    background-color: #fff;
+
+    overflow: auto;
 }
 
 a {
@@ -28,76 +32,36 @@ img {
     height: auto;
 }
 
-@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
-    img {
-        margin-bottom: 0.75rem;
-    }
-}
-
-@media screen and (min-width: 48rem), (min-height: 56.25rem) {
-    img {
-        margin-bottom: 1rem;
-    }
-}
-
-@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
-    img {
-        margin-bottom: 1.5rem;
-    }
-}
-
 .site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1;
-    height: 10vh;
-}
-
-@media screen and (min-aspect-ratio: 1) {
-    .site-header {
-        height: 16vh;
-    }
+    z-index: 5;
+    height: 3rem;
+    pointer-events: none;
 }
 
 .header-text {
-    margin-left: 1rem;
+    align-self: end;
+    margin: 0 1rem;
     font-size: 2rem;
     font-weight: bolder;
-}
-
-@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
-    .header-text {
-        margin-left: 2rem;
-        font-size: 2.5rem;
-    }
-}
-
-@media screen and (min-width: 48rem) and (min-height: 41.875rem) {
-    .header-text {
-        margin-left: 4rem;
-        font-size: 3rem;
-    }
-}
-
-@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
-    .header-text {
-        margin-left: 5rem;
-        font-size: 4rem;
-    }
+    white-space: nowrap;
 }
 
 .main-container {
-    height: 100vh;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 .split-section {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #629db8;
     transition: filter 0.3s, background-color 0.3s;
 }
 
@@ -120,58 +84,41 @@ img {
 }
 
 .left-section {
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 60%);
+    background-color: rgb(98, 157, 184);
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc((100% / 3) - 2% + 1px),
+        0 calc((100% / 3) + 2% + 1px)
+    );
+    z-index: 10;
 }
 
-@media screen and (min-height: 41.6875rem) {
-    .left-section {
-        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 65%);
-    }
-}
-
-@media screen and (min-aspect-ratio: 1) {
-    .left-section {
-        clip-path: polygon(0 0, 67% 0, 33% 100%, 0 100%);
-    }
-}
-
-@media screen and (min-aspect-ratio: 1) and (max-width: 56.25rem) {
-    .left-section {
-        clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
-    }
+.mid-section {
+    background-color: rgb(84, 147, 177);
+    clip-path: polygon(
+        0 calc((100% / 3) + 2%),
+        100% calc((100% / 3) - 2%),
+        100% calc((100% / 3 * 2) - 2%),
+        0 calc((100% / 3 * 2) + 2%)
+    );
+    z-index: 5;
 }
 
 .right-section {
-    clip-path: polygon(0 60%, 100% 50%, 100% 100%, 0 100%);
-}
-
-@media screen and (min-height: 41.6875rem) {
-    .right-section {
-        clip-path: polygon(0 65%, 100% 45%, 100% 100%, 0 100%);
-    }
-}
-
-@media screen and (min-aspect-ratio: 1) {
-    .right-section {
-        clip-path: polygon(67% 0, 100% 0, 100% 100%, 33% 100%);
-    }
-}
-
-@media screen and (min-aspect-ratio: 1) and (max-width: 56.25rem) {
-    .right-section {
-        clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
-    }
+    background-color: rgb(74, 136, 166);
+    clip-path: polygon(
+        0 calc((100% / 3 * 2) + 2% - 1px),
+        100% calc((100% / 3 * 2) - 2% - 1px),
+        100% 100%,
+        0 100%
+    );
+    z-index: 0;
 }
 
 .outer-container {
     position: absolute;
     width: min-content;
-}
-
-@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
-    .outer-container {
-        width: 50%;
-    }
 }
 
 .outer-container,
@@ -183,14 +130,14 @@ img {
 }
 
 .left-section .outer-container {
-    top: 10%;
+    top: 6%;
     left: 0%;
 }
 
-@media screen and (min-aspect-ratio: 1) {
-    .left-section .outer-container {
-        top: 15%;
-    }
+.mid-section .outer-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .right-section .outer-container {
@@ -198,21 +145,8 @@ img {
     right: 0;
 }
 
-@media screen and (min-aspect-ratio: 1) {
-    .right-section .outer-container {
-        bottom: 15%;
-    }
-}
-
-@media screen and (min-aspect-ratio: 1) and (max-height: 30rem) {
-    .right-section .outer-container {
-        top: 15%;
-        bottom: initial;
-    }
-}
-
 .inner-container {
-    width: min-content;
+    width: 10rem;
     margin: 0 1rem;
 }
 
@@ -222,70 +156,23 @@ img {
     font-size: 1.25rem;
     color: #e2e2e2;
     font-weight: bold;
-}
-
-@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
-    .section-title {
-        margin: 0.25rem 0 0.75rem 0;
-        font-size: 1.5rem;
-    }
-}
-
-@media screen and (min-width: 48rem), (min-height: 56.25rem) {
-    .section-title {
-        margin: 0.5rem 0 1.25rem 0;
-        font-size: 1.75rem;
-    }
-}
-
-@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
-    .section-title {
-        margin: 1rem 0 2rem 0;
-        font-size: 2rem;
-    }
+    white-space: nowrap;
 }
 
 .button {
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 12rem;
-    padding: 0.5rem 2rem;
+    width: 100%;
+    padding: 0.5rem 0;
     margin: 0.25rem 0;
     border: 2px solid #fff;
     border-radius: 0.75rem;
     color: #fff;
     font-size: 1rem;
+    white-space: nowrap;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease,
         border-color 0.3s ease;
-}
-
-@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
-    .button {
-        width: 14rem;
-        padding: 0.5rem 2.5rem;
-        margin: 0.5rem 0;
-        font-size: 1.125rem;
-    }
-}
-
-@media screen and (min-width: 48rem), (min-height: 56.25rem) {
-    .button {
-        width: 16rem;
-        padding: 0.75rem 3rem;
-        margin: 0.5rem 0;
-        border-radius: 1rem;
-        font-size: 1.25rem;
-    }
-}
-
-@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
-    .button {
-        width: 18rem;
-        padding: 1rem 3rem;
-        margin: 0.75rem 0;
-        font-size: 1.33rem;
-    }
 }
 
 .button.active:hover,
@@ -313,55 +200,17 @@ img {
     margin-left: 0.33rem;
 }
 
-@media screen and (min-width: 41.6875rem), (min-height: 48rem) {
-    .inner-container .github-svg {
-        width: 1.125rem;
-        margin-left: 0.4rem;
-    }
-}
-
-@media screen and (min-width: 48rem), (min-height: 56.25rem) {
-    .inner-container .github-svg {
-        width: 1.25rem;
-        margin-left: 0.5rem;
-    }
-}
-
-@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
-    .inner-container .github-svg {
-        width: 1.33rem;
-        margin-left: 0.6rem;
-    }
-}
-
 .header-button-wrap,
 .header-button {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: auto;
 }
 
 .header-button-wrap {
     height: 2rem;
-    margin: 0 5% 1% 0;
-}
-
-@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
-    .header-button-wrap {
-        height: 2.5rem;
-    }
-}
-
-@media screen and (min-width: 48rem) and (min-height: 41.875rem) {
-    .header-button-wrap {
-        height: 3rem;
-    }
-}
-
-@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
-    .header-button-wrap {
-        height: 4rem;
-    }
+    margin-right: 1rem;
 }
 
 .header-button-wrap,
@@ -382,18 +231,6 @@ img {
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-@media screen and (min-width: 37.5rem) and (min-height: 37.5rem) {
-    .header-button .github-svg {
-        border-width: 3px;
-    }
-}
-
-@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
-    .header-button .github-svg {
-        border-width: 4px;
-    }
-}
-
 .header-button .github-path {
     fill: #e2e2e2;
     transition: fill 0.3s ease;
@@ -409,4 +246,291 @@ img {
 .header-button:hover .github-path,
 .header-button:focus .github-path {
     fill: #fff;
+}
+
+@media screen and (min-width: 64rem) and (min-height: 56.25rem) {
+    img {
+        margin-bottom: 1.5rem;
+    }
+
+    .site-header {
+        height: 6rem;
+    }
+
+    .header-text {
+        margin: 0 5rem;
+        font-size: 4rem;
+    }
+
+    .inner-container .github-svg {
+        width: 1.33rem;
+        margin-left: 0.6rem;
+    }
+
+    .header-button-wrap {
+        height: 4rem;
+    }
+
+    .header-button .github-svg {
+        border-width: 4px;
+    }
+}
+
+@media screen and (min-width: 48rem) and (min-height: 37.5rem),
+    (min-height: 30rem) and (min-aspect-ratio: 2) {
+    .site-header {
+        height: 3.5rem;
+    }
+
+    .header-text {
+        margin: 0 2rem;
+        font-size: 2.5rem;
+    }
+
+    .outer-container {
+        width: 33%;
+    }
+
+    .header-button-wrap {
+        height: 2.5rem;
+    }
+
+    .header-button .github-svg {
+        border-width: 3px;
+    }
+}
+
+@media screen and (min-width: 56.25rem) and (min-height: 41.875rem),
+    (min-height: 37.5rem) and (min-aspect-ratio: 2.5) {
+    .site-header {
+        height: 5rem;
+    }
+
+    .header-text {
+        margin: 0 4rem;
+        font-size: 3rem;
+    }
+
+    .header-button-wrap {
+        height: 3rem;
+        margin-right: 2rem;
+    }
+}
+
+@media screen and (min-height: 56rem) {
+    .left-section {
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% calc((100% / 3) - 5% + 1px),
+            0 calc((100% / 3) + 5% + 1px)
+        );
+    }
+
+    .mid-section {
+        clip-path: polygon(
+            0 calc((100% / 3) + 5%),
+            100% calc((100% / 3) - 5%),
+            100% calc((100% / 3 * 2) - 5%),
+            0 calc((100% / 3 * 2) + 5%)
+        );
+    }
+
+    .right-section {
+        clip-path: polygon(
+            0 calc((100% / 3 * 2) + 5% - 1px),
+            100% calc((100% / 3 * 2) - 5% - 1px),
+            100% 100%,
+            0 100%
+        );
+    }
+}
+
+@media screen and (min-width: 37.5rem) and (max-height: 48rem) {
+    body {
+        position: static;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .split-section {
+        position: fixed;
+    }
+
+    .left-section {
+        clip-path: polygon(
+            0 0,
+            calc((100% / 3) + 5% + 1px) 0,
+            calc((100% / 3) - 5% + 1px) 100%,
+            0 100%
+        );
+    }
+
+    .mid-section {
+        clip-path: polygon(
+            calc((100% / 3) + 5%) 0,
+            calc((100% / 3 * 2) + 5%) 0,
+            calc((100% / 3 * 2) - 5%) 100%,
+            calc((100% / 3) - 5%) 100%
+        );
+    }
+
+    .right-section {
+        clip-path: polygon(
+            calc((100% / 3 * 2) + 5% - 1px) 0,
+            100% 0,
+            100% 100%,
+            calc((100% / 3 * 2) - 5% - 1px) 100%
+        );
+    }
+
+    .left-section .outer-container {
+        top: 15%;
+    }
+
+    .mid-section .outer-container {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .right-section .outer-container {
+        bottom: 15%;
+    }
+}
+
+@media screen and (min-height: 48rem) and (min-aspect-ratio: 0.75) {
+    body {
+        position: static;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .split-section {
+        position: fixed;
+    }
+
+    .left-section {
+        clip-path: polygon(
+            0 0,
+            calc((100% / 3) + 10% + 1px) 0,
+            calc((100% / 3) - 10% + 1px) 100%,
+            0 100%
+        );
+    }
+
+    .mid-section {
+        clip-path: polygon(
+            calc((100% / 3) + 10%) 0,
+            calc((100% / 3 * 2) + 10%) 0,
+            calc((100% / 3 * 2) - 10%) 100%,
+            calc((100% / 3) - 10%) 100%
+        );
+    }
+
+    .right-section {
+        clip-path: polygon(
+            calc((100% / 3 * 2) + 10% - 1px) 0,
+            100% 0,
+            100% 100%,
+            calc((100% / 3 * 2) - 10% - 1px) 100%
+        );
+    }
+
+    .left-section .outer-container {
+        top: 15%;
+    }
+
+    .mid-section .outer-container {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .right-section .outer-container {
+        bottom: 15%;
+    }
+}
+
+@media screen and (min-aspect-ratio: 2) and (max-height: 30rem) {
+    .left-section .outer-container {
+        bottom: 15%;
+        top: initial;
+    }
+
+    .mid-section .outer-container {
+        bottom: 15%;
+        top: initial;
+        transform: translateX(-50%);
+    }
+
+    .right-section .outer-container {
+        bottom: 15%;
+        top: initial;
+    }
+}
+
+@media screen and (min-width: 48rem) and (min-height: 48rem),
+    (min-height: 64rem) and (max-aspect-ratio: 1),
+    (min-width: 48rem) and (min-height: 22.5rem) and (min-aspect-ratio: 1.5) {
+    .inner-container {
+        width: 12rem;
+    }
+
+    .section-title {
+        margin: 0.25rem 0 0.5rem 0;
+        font-size: 1.25rem;
+    }
+
+    img {
+        margin-bottom: 0.75rem;
+    }
+
+    .button {
+        padding: 0.5rem 0;
+        margin: 0.5rem 0;
+        font-size: 1.125rem;
+    }
+
+    .inner-container .github-svg {
+        width: 1.125rem;
+        margin-left: 0.4rem;
+    }
+}
+
+@media screen and (min-width: 56.25rem) and (min-height: 56.25rem),
+    (min-width: 56.25rem) and (min-height: 30rem) and (min-aspect-ratio: 1.5) {
+    .inner-container {
+        width: 14rem;
+    }
+
+    .section-title {
+        margin: 0.5rem 0 1rem 0;
+        font-size: 1.5rem;
+    }
+
+    .button {
+        padding: 0.75rem 0;
+        margin: 0.5rem 0;
+        border-radius: 1rem;
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 75rem) and (min-height: 56.25rem),
+    (min-height: 37.5rem) and (min-aspect-ratio: 2) {
+    .inner-container {
+        width: 18rem;
+    }
+
+    .section-title {
+        margin: 1rem 0 2rem 0;
+        font-size: 2rem;
+    }
+
+    .button {
+        padding: 1rem 0;
+        margin: 0.75rem 0;
+        font-size: 1.33rem;
+    }
 }

@@ -15,18 +15,17 @@ function keySectionSwitch(event, section) {
 }
 
 function activateSection(section) {
+    deactivateOtherActive();
     section.classList.add("active");
-    const sectionButtons = section.querySelectorAll(".button");
-    toggleButtons(sectionButtons, true);
-
-    const otherSection = getOtherSection(section);
-    otherSection.classList.remove("active");
-    otherButtons = otherSection.querySelectorAll(".button");
-    toggleButtons(otherButtons, false);
+    toggleButtons(section.querySelectorAll(".button"), true);
 }
 
-function getOtherSection(section) {
-    return sections[1 - Array.from(sections).indexOf(section)];
+function deactivateOtherActive() {
+    const activeSection = document.querySelector(".active");
+    if (activeSection) {
+        activeSection.classList.remove("active");
+        toggleButtons(activeSection.querySelectorAll(".button"), false);
+    }
 }
 
 function toggleButtons(buttons, isEnabled) {
