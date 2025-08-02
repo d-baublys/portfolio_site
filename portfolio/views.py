@@ -39,6 +39,16 @@ class HomeView(View):
                     "live_link": "https://dbaublys.eu.pythonanywhere.com",
                     "github_link": "https://github.com/d-baublys/blogger_clone",
                 },
+                {
+                    "src": static(
+                        "portfolio/images/originalportfoliopreview-1200w.png"
+                    ),
+                    "srcset": f"{static("portfolio/images/originalportfoliopreview-480w.png")} 480w, {static("portfolio/images/originalportfoliopreview-768w.png")} 768w, {static("portfolio/images/originalportfoliopreview-1200w.png")} 1200w",
+                    "title": "Portfolio Site - Original Layout",
+                    "alt": "Portfolio Site Original Layout Preview",
+                    "live_link": "https://db-portfolio-original.up.railway.app",
+                    "github_link": "https://github.com/d-baublys/portfolio-site-original-layout",
+                },
             ]
         }
 

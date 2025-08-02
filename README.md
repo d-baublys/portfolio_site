@@ -1,6 +1,7 @@
 # Portfolio Site
 
-A single-page site for showcasing my current web development portfolio, with a focus on a memorable and interactive front-end.
+A single-page site for presenting my web development portfolio projects, with a focus on a memorable and interactive front-end.
+It is an evolution of the original version (https://github.com/d-baublys/portfolio-site-original-layout), now using a carousel layout adapted from my Next.js e-commerce site project (https://github.com/d-baublys/ecommerce-site) for scalability.
 
 Live Demo: https://db-portfolio.co.uk
 
@@ -11,14 +12,13 @@ Live Demo: https://db-portfolio.co.uk
 - **Hosting:** Railway
 
 ## Lessons
-- Ensuring usability in a non-scrollable environment across different screen sizes and orientations
-- Using the `clip-path` CSS property and exploring its limits
+- Adapting JSX-based components into vanilla HTML, CSS, and JavaScript
 - Implementing background `audio` effects during user interaction
 - Obtaining a custom domain and integrating with Cloudflare
 
 ## Demonstrates
 - Creation of interesting and appealing front-end features
-- Accommodating various screen sizes and orientations by considering height and aspect ratio
+- Accommodating various screen sizes and orientations
 - Mindfulness about accessibility by making custom elements keyboard-interactive
 - Creating a more unique user experience by selecting and setting subtle `audio` on user interaction
 - Ability to deploy to production using a cloud platform
